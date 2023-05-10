@@ -1,23 +1,23 @@
 "use client";
 import { Box, Center, HStack, Progress, Stack, useBreakpointValue, Text } from "@chakra-ui/react";
 
-export interface BarStepTrackerProps {
-  label?: 'percent' | 'steps',
+export interface PercentTrackerProps {
   colorScheme?: string,
   active: number,
   total: number
 }
 
-export const BarStepTracker = (props: BarStepTrackerProps) => {
-  const { label = 'steps', colorScheme = 'blue', active, total } = props;
+export const PercentTracker = (props: PercentTrackerProps) => {
+  const { colorScheme = 'blue', active, total } = props; //default to blue if no value provided
 
+  //scale bar to fit screen size
   const barWidth = useBreakpointValue({
     base: '15em', 
     sm: '15em', 
     md: '30em', 
     lg: '55em', 
     xl: '55em'
-  });
+  }); 
 
   const progress =  Math.round((active / total) * 100);
 
@@ -34,12 +34,7 @@ export const BarStepTracker = (props: BarStepTrackerProps) => {
             colorScheme={colorScheme}
           />
         </Box>
-        { label && 
-          <Text fontWeight='semibold'>
-            { label === 'percent' && `${progress}%` }
-            { label === 'steps' && `${active}/${total}` }
-          </Text> 
-        }
+        <Text fontWeight='semibold'>{ `${progress}%` }</Text> 
         </HStack>
       </Center>
     </Stack>
