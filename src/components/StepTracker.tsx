@@ -1,4 +1,4 @@
-import { StepModel } from "@/model/StepModel";
+import { StepModel } from "@/models/StepModel";
 import { Box, Step, StepDescription, StepIcon, StepIndicator, StepNumber, Stepper, StepSeparator, StepStatus, StepTitle } from "@chakra-ui/react"
 
 export interface StepTrackerProps {

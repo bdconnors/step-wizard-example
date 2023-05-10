@@ -2,7 +2,7 @@
 import { Button, HStack, Stack, useSteps, VStack } from "@chakra-ui/react"
 import { StepTracker } from "./StepTracker"
 import { PercentTracker } from "./PercentTracker";
-import { StepModel } from "@/model/StepModel";
+import { StepModel } from "@/models/StepModel";
 
 export interface StepWizardProps {
   tracker?: 'steps' | 'percent',

@@ -1,6 +1,6 @@
 "use client";
 import { StepWizard } from "@/components/StepWizard";
-import { StepModel } from "@/model/StepModel";
+import { StepModel } from "@/models/StepModel";
 import { Button, ChakraProvider, Container, HStack, VStack } from "@chakra-ui/react";
 import { useState } from "react";
 
