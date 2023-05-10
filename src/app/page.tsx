@@ -1,7 +1,7 @@
 "use client";
 import { SegmentStepTracker } from "@/components/SegmentStepTracker";
 import { StepModel } from "@/model/StepModel";
-import { Button, ChakraProvider, HStack, Stack, useSteps } from "@chakra-ui/react";
+import { Button, Center, ChakraProvider, Container, HStack, Stack, useSteps } from "@chakra-ui/react";
 
 export default function App() {
   const steps: StepModel [] = [
@@ -15,14 +15,20 @@ export default function App() {
 
   return (
     <ChakraProvider>
-      <Stack spacing={4} direction='column' maxW={'5xl'}>
-        <SegmentStepTracker steps={steps} active={activeStep}/> 
-        { steps[activeStep] && steps[activeStep].component }
-        <HStack>
-          <Button onClick={()=>goToPrevious()}>Prev</Button>
-          <Button onClick={()=>goToNext()}>Next</Button>
-        </HStack>
-      </Stack>
+      <Container maxW={'6xl'}>
+        <Stack spacing={4} direction='column'>
+          <SegmentStepTracker steps={steps} active={activeStep}/> 
+          { steps[activeStep] && 
+            <Center>{steps[activeStep].component}</Center>
+          }
+          <Center>
+            <HStack>
+              <Button onClick={()=>goToPrevious()}>Prev</Button>
+              <Button onClick={()=>goToNext()}>Next</Button>
+            </HStack>
+          </Center>
+        </Stack>
+      </Container>
     </ChakraProvider>
   );
 }
